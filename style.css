@@ -1,34 +1,35 @@
-ul {
+ul.multi-nested-list,
+ul.multi-nested-list ul {
     padding: 0em;
 }
 
-ul li, ul li ul li {
+ul.multi-nested-list li,
+ul.multi-nested-list ul li {
     position:relative;
     top:0;
     bottom:0;
     padding-bottom: 7px;
-
 }
 
-ul li ul {
+ul.multi-nested-list li ul {
     margin-left: 4em;
 }
 
-li {
+ul.multi-nested-list li {
     list-style-type: none;
 }
 
-li a {
+ul.multi-nested-list li a {
     padding:0 0 0 10px;
     position: relative;
     top:1em;
 }
 
-li a:hover {
+ul.multi-nested-list li a:hover {
     text-decoration: none;
 }
 
-a.addBorderBefore:before {
+ul.multi-nested-list a.addBorderBefore:before {
     content: "";
     display: inline-block;
     width: 2px;
@@ -39,7 +40,7 @@ a.addBorderBefore:before {
     border-left: 1px solid gray;
 }
 
-li:before {
+ul.multi-nested-list li:before {
     content: "";
     display: inline-block;
     width: 25px;
@@ -50,7 +51,8 @@ li:before {
     border-top: 1px solid gray;
 }
 
-ul li ul li:last-child:after, ul li:last-child:after {
+ul.multi-nested-list li ul li:last-child:after,
+ul.multi-nested-list li:last-child:after {
     content: '';
     display: block;
     width: 1em;

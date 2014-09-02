@@ -1,11 +1,11 @@
 $(function() {
     // Select the main list and add the class "hasSubmenu" in each LI that contains an UL
-    $('ul').each(function() {
+    $('ul.multi-nested-list').each(function() {
         $this = $(this);
         $this.find("li").has("ul").addClass("hasSubmenu");
     });
     // Find the last li in each level
-    $('li:last-child').each(function() {
+    $('ul.multi-nested-list li:last-child').each(function() {
         $this = $(this);
         // Check if LI has children
         if ($this.children('ul').length === 0) {
@@ -23,7 +23,7 @@ $(function() {
         };
     });
     // Add bold in li and levels above
-    $('ul li').each(function() {
+    $('ul.multi-nested-list li').each(function() {
         $this = $(this);
         $this.mouseenter(function() {
             $(this).children("a").css({
@@ -39,13 +39,13 @@ $(function() {
         });
     });
     // Add button to expand and condense - Using FontAwesome
-    $('ul li.hasSubmenu').each(function() {
+    $('ul.multi-nested-list li.hasSubmenu').each(function() {
         $this = $(this);
         $this.prepend("<a href='#'><i class='fa fa-minus-circle'></i><i style='display:none;' class='fa fa-plus-circle'></i></a>");
         $this.children("a").not(":last").removeClass().addClass("toogle");
     });
     // Actions to expand and consense
-    $('ul li.hasSubmenu a.toogle').click(function() {
+    $('ul.multi-nested-list li.hasSubmenu a.toogle').click(function() {
         $this = $(this);
         $this.closest("li").children("ul").toggle("slow");
         $this.children("i").toggle();
